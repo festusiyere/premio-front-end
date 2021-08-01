@@ -105,8 +105,11 @@ export default {
   },
   methods: {
     async deletePopup() {
+      // Delete Popup from server
       this.$store.commit("global/updateLoadingStatus", true);
       await new PopupService(this).deletePopup(this.id);
+
+      // Refresh popups in store
       await this.$store.dispatch("global/getPopups");
       this.$store.commit("global/updateLoadingStatus", false);
       this.$router.push("/home");

@@ -38,6 +38,7 @@
 export default {
   computed: {
     isLoading() {
+      // Get Loading Status from store
       return this.$store.state.global.isLoading;
     },
   },

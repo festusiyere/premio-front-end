@@ -15,7 +15,7 @@
 <script>
 export default {
   mounted() {
-    this.$store.commit("title/updateTitle", "Update " + "Instructions");
+    this.$store.commit("title/updateTitle", "Instructions");
   },
 };
 </script>

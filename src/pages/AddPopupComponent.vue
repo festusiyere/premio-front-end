@@ -107,9 +107,15 @@ export default {
 
     async savePopup() {
       this.$store.commit("global/updateLoadingStatus", true);
+      // Save popup to Server
+
       await new PopupService(this).createPopup(this.popupData);
+      // Refresh popups in store
+
       await this.$store.dispatch("global/getPopups");
       this.$store.commit("global/updateLoadingStatus", false);
+
+      // Redirect to home page
       this.$router.push("/home");
     },
   },

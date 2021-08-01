@@ -11,21 +11,29 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "",
+    path: "/",
+    redirect: { name: "home" },
+  },
+  {
+    path: "/",
     component: HomeLayout,
     children: [
-      { path: "home", component: HomeComponent },
+      { path: "home", name: "home", component: HomeComponent },
       { path: "instructions", component: InstructionsComponent },
       { path: "popup/add", component: AddPopupComponent },
       { path: "popup/:id", name: "popup-view", component: PopupViewComponent },
-      { path: "popup/:id/edit", name: "popup-edit", component: PopupEditComponent },
+      {
+        path: "popup/:id/edit",
+        name: "popup-edit",
+        component: PopupEditComponent,
+      },
     ],
   },
 ];
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: "/",
   routes,
   linkActiveClass: "active",
   linkExactActiveClass: "exact-active",

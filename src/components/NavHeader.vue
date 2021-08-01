@@ -10,6 +10,7 @@
 export default {
   computed: {
     title() {
+      // Get Title from store
       return this.$store.state.title.title;
     },
   },

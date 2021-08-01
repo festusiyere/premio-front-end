@@ -124,6 +124,7 @@ export default {
       this.popupData[target].content = value;
     },
 
+    // Update Popup in server
     async updatePopup() {
       this.$store.commit("global/updateLoadingStatus", true);
       await new PopupService(this).updatePopup(this.popupData, this.id);

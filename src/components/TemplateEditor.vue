@@ -176,12 +176,14 @@ export default {
         this.$refs[this.currentElement].offsetLeft - this.positions.movementX;
     },
     closeDragElement() {
+      // Reset start and end positions
       this.positions.clientX = 0;
       this.positions.clientY = 0;
       this.positions.movementY = 0;
       this.positions.movementX = 0;
       this.currentElement = null;
 
+      // Remove dom events
       document.onmouseup = null;
       document.onmousemove = null;
     },

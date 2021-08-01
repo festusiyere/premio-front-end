@@ -25,6 +25,7 @@ export default {
     Loading,
   },
   mounted() {
+    // Get all popup
     this.$store.dispatch("global/getPopups");
   },
 };
