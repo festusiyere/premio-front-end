@@ -6,7 +6,7 @@
         This is an application that is used to create a popup that can be
         integrated into a third party site. Basically, once you create a pop up,
         copy the generated script and place before the closing body of your
-        website. :)
+        website :)
       </p>
     </div>
   </div>
@@ -15,7 +15,7 @@
 <script>
 export default {
   mounted() {
-    this.$store.commit("title/updateTitle", "Update " + this.popup.name ?? "");
+    this.$store.commit("title/updateTitle", "Update " + "Instructions");
   },
 };
 </script>
