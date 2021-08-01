@@ -31,9 +31,9 @@
             Copy the following script and paste it at the before the closing
             body tag of your code.
             <div class="code-wrapper">
-              <code v-text="`<script`"></code>
+              <code v-text="`<`"></code>
               <code v-text="referenceScript"> </code>
-              <code v-text="`<script />`"></code>
+              <code v-text="`</script>`"></code>
             </div>
           </div>
         </div>
@@ -121,6 +121,6 @@ export default {
     this.$store.commit("title/updateTitle", this.popup.name);
   },
 };
-</script>
+</>
 
 <style></style>
