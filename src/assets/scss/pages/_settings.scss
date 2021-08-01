@@ -1,0 +1,19 @@
+// Style for Settings page
+.settings {
+  display: flex;
+  align-items: flex-start;
+
+  .fields {
+    flex-basis: 50%;
+    order: 1;
+  }
+
+  .template-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+    order: 2;
+  }
+}

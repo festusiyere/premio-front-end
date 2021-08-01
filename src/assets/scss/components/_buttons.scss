@@ -1,0 +1,43 @@
+button,
+.button {
+  height: 3em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 2em;
+  border: none;
+  border-radius: 1.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-left: 0.6rem;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+
+  &.button--primary {
+    background-color: $button-primary;
+    color: $bg-water;
+
+    &:hover {
+      background-color: $button-primary-darker;
+      color: $bg-water;
+    }
+  }
+
+  &.button--secondary {
+    background-color: $button-secondary;
+    color: $black;
+
+    &:hover {
+      background-color: $button-secondary-darker;
+      color: $black;
+    }
+  }
+  &.button--danger {
+    background-color: $red;
+    color: $bg-water;
+
+    &:hover {
+      background-color: $red-light;
+    }
+  }
+}

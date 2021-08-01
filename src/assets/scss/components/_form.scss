@@ -1,0 +1,62 @@
+// Styles for form elements
+.input-field__wrapper {
+  position: relative;
+  margin-bottom: 30px;
+
+  + .input-field__wrapper,
+  + div {
+    margin-top: 20px;
+  }
+}
+
+label {
+  display: block;
+  text-align: left;
+  color: rgba($black, 0.8);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+select {
+  height: 2.8em;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  width: 100%;
+  background-color: $bg-input;
+  font-weight: 500;
+  font-family: inherit;
+  color: inherit;
+  padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
+
+  &[type="color"] {
+    height: 2.8em;
+    border-radius: 4px;
+    border: none;
+  }
+
+  &:focus {
+    border: 2px solid #bdc0c7;
+    outline: none;
+  }
+}
+
+textarea {
+  height: 10em;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  background-color: $bg-input;
+  font-weight: 500;
+  font-family: inherit;
+  color: inherit;
+  padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
+
+  &:focus {
+    border: 2px solid #bdc0c7;
+    outline: none;
+  }
+}

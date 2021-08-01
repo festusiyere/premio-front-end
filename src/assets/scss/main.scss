@@ -1,0 +1,22 @@
+// Importing core styles
+@import "core/reset";
+@import "core/variables";
+@import "core/mixins";
+@import "core/typography";
+@import "core/layout";
+
+// Importing Utilities
+
+@import "utils/utilities";
+
+// Importing Components
+@import "components/loader";
+@import "components/nav";
+@import "components/buttons";
+@import "components/form";
+@import "components/template";
+
+// Importing pages
+@import "pages/home";
+@import "pages/settings";
+@import "pages/popup";

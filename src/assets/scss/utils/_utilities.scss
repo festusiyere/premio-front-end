@@ -1,0 +1,18 @@
+.d-flex {
+  display: flex;
+
+  &.flex-column {
+    flex-direction: column;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+}
+
+.code-wrapper {
+  background-color: $bg-code;
+  padding: 1rem;
+  color: $black;
+  margin: 1rem 0;
+}
