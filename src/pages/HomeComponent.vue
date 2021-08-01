@@ -7,7 +7,10 @@
       >
     </div>
 
-    <div class="popup__list">
+    <div
+      class="popup__list"
+      :class="{ 'flex-start': popups && popups.length && popups.length < 3 }"
+    >
       <template v-if="popups && popups.length">
         <div class="popup__list__item" v-for="popup in popups" :key="popup.id">
           <div

@@ -8,6 +8,8 @@
       <div class="page-content">
         <!-- Page Content View -->
         <router-view />
+        <!-- <transition name="fade" mode="out-in">
+        </transition> -->
       </div>
     </div>
     <Loading />
