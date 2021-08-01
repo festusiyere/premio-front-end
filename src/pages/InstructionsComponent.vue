@@ -1,13 +1,23 @@
 <template>
   <div>
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit
-    recusandae quis officia nostrum inventore totam doloribus eum sequi libero
-    voluptates.
+    <h5>Instructions</h5>
+    <div>
+      <p>
+        This is an application that is used to create a popup that can be
+        integrated into a third party site. Basically, once you create a pop up,
+        copy the generated script and place before the closing body of your
+        website. :)
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    this.$store.commit("title/updateTitle", "Update " + this.popup.name ?? "");
+  },
+};
 </script>
 
 <style></style>

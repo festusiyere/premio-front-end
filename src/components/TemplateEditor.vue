@@ -1,6 +1,7 @@
 <template>
   <div class="template-wrapper">
     <div
+      v-if="popupData"
       class="template"
       :style="{ backgroundColor: popupData.popup['background-color'] }"
     >
@@ -92,12 +93,7 @@
             left: popupData.email.left + 'px',
           }"
         >
-          <input
-            type="text"
-            contenteditable="true"
-            @input="changeContent($event, 'email')"
-            :placeholder="popupData.email.content"
-          />
+          <input type="text" :placeholder="popupData.email.content" />
         </div>
         <div
           class="button"

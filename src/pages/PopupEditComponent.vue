@@ -2,8 +2,8 @@
   <div class="settings">
     <TemplateEditor :popupData="popupData" @contentChanged="updateValues" />
 
-    <div class="fields">
-      <form @submit.prevent="savePopup">
+    <div class="fields" v-if="popupData">
+      <form @submit.prevent="updatePopup">
         <div class="input-field__wrapper">
           <label for="popup_name">Popup Name</label>
           <input type="text" v-model="popupData.name" id="popup_name" />
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import TemplateEditor from "@/components/TemplateEditor.vue";
 import { PopupService } from "@/services";
 
@@ -65,56 +66,77 @@ export default {
   components: {
     TemplateEditor,
   },
-  data() {
-    return {
-      popupData: {
-        name: "Custom Popup",
+  computed: {
+    ...mapGetters({
+      popups: "global/getPopups",
+    }),
+    popup() {
+      if (!this.popups || !this.popups.length) return null;
+      const data = this.popups.find((popup) => popup.id == parseInt(this.id));
+      if (!data) return null;
+
+      const formattedData = {
+        id: data.id,
+        name: data.name,
         stars: {
-          top: 24,
-          left: 124,
+          id: data.stars.id,
+          top: data.stars.top,
+          left: data.stars.left,
         },
         mainText: {
-          content:
-            "All text and element in this popup should be editable and draggable",
-          top: 60,
-          left: 32,
+          id: data["main_text"].id,
+          content: data["main_text"].content,
+          top: data["main_text"].top,
+          left: data["main_text"].left,
         },
         email: {
-          content: "Email",
-          top: 150,
-          left: 43,
+          id: data.email.id,
+          content: data.email.content,
+          top: data.email.top,
+          left: data.email.left,
         },
         button: {
-          content: "SIGNUP NOW",
-          top: 210,
-          left: 43,
+          id: data.button.id,
+          content: data.button.content,
+          top: data.button.top,
+          left: data.button.left,
         },
         supportingText: {
-          content: "No credit card required. No surprises",
-          top: 280,
-          left: 88,
+          id: data["supporting_text"].id,
+          content: data["supporting_text"].content,
+          top: data["supporting_text"].top,
+          left: data["supporting_text"].left,
         },
         popup: {
-          "background-color": "#ff7c54",
+          "background-color": data.background_color,
         },
-      },
+      };
+      return formattedData;
+    },
+  },
+  data() {
+    return {
+      popupData: null,
     };
   },
   methods: {
     updateValues(target, value) {
-      this.popupData.mainText.content = value;
+      this.popupData[target].content = value;
     },
 
-    async savePopup() {
+    async updatePopup() {
       this.$store.commit("global/updateLoadingStatus", true);
-      await new PopupService(this).createPopup(this.popupData);
+      await new PopupService(this).updatePopup(this.popupData, this.id);
       await this.$store.dispatch("global/getPopups");
       this.$store.commit("global/updateLoadingStatus", false);
       this.$router.push("/home");
     },
   },
   async mounted() {
-    this.$store.commit("title/updateTitle", "Add Popup");
+    if (!this.popups) this.$router.push("/home");
+    this.id = this.$route.params.id;
+    this.$store.commit("title/updateTitle", "Update " + this.popup.name ?? "");
+    this.popupData = this.popup;
   },
 };
 </script>

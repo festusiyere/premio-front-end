@@ -20,6 +20,11 @@ export default class PopupService {
 
   // Update a popup Resource
   updatePopup(data, id) {
-    return this.$axios.patch(`popup/update/${id}`, data);
+    return this.$axios.patch(`popup/${id}`, data);
+  }
+
+  // Delete a popup Resource
+  deletePopup(id) {
+    return this.$axios.delete(`popup/${id}`);
   }
 }

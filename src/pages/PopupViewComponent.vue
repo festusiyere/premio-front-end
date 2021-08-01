@@ -4,10 +4,10 @@
       <router-link to="/popup/add" class="button button--primary">
         Add Popup</router-link
       >
-      <router-link :to="`/popup/${id}/update`" class="button button--secondary"
+      <router-link :to="`/popup/${id}/edit`" class="button button--secondary"
         >Edit Popup</router-link
       >
-      <button class="button--danger" @click="detetPopup">Delete Popup</button>
+      <button class="button--danger" @click="deletePopup">Delete Popup</button>
     </div>
 
     <div class="content">
@@ -46,6 +46,7 @@
 <script>
 import { mapGetters } from "vuex";
 import TemplateViewer from "@/components/TemplateViewer.vue";
+import { PopupService } from "@/services";
 
 export default {
   components: {
@@ -56,7 +57,7 @@ export default {
       popups: "global/getPopups",
     }),
     popup() {
-      if (!this.popups.length) return null;
+      if (!this.popups || !this.popups.length) return null;
       const data = this.popups.find((popup) => popup.id == parseInt(this.id));
       if (!data) return null;
 
@@ -103,7 +104,13 @@ export default {
     };
   },
   methods: {
-    detetPopup() {},
+    async deletePopup() {
+      this.$store.commit("global/updateLoadingStatus", true);
+      await new PopupService(this).deletePopup(this.id);
+      await this.$store.dispatch("global/getPopups");
+      this.$store.commit("global/updateLoadingStatus", false);
+      this.$router.push("/home");
+    },
   },
   async mounted() {
     if (!this.popups) this.$router.push("/home");

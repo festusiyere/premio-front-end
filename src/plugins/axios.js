@@ -3,7 +3,7 @@ import axios from "axios";
 export const $axios = axios.create({
   // Base URL
   baseURL: "http://127.0.0.1:8000/api/",
-  // baseURL: "https://premio-backend.herokuapp.com/",
+  // baseURL: "https://premio-backend.herokuapp.com/api/",
 
   // Custom Headers
   headers: {
