@@ -55,7 +55,6 @@
     }
 
     .input-field {
-      margin-top: 1rem;
       position: absolute;
       width: 80%;
       cursor: move;
@@ -75,10 +74,10 @@
       z-index: 8;
     }
 
-    .button {
+    .button-div {
       position: absolute;
       width: 80%;
-      margin-top: 1rem;
+      z-index: 10;
       button {
         border-radius: 12px;
         background-color: #484848;
@@ -92,7 +91,6 @@
         padding: 1em 0.5em;
         margin: 0;
       }
-      z-index: 10;
     }
 
     .sub-text {
@@ -100,7 +98,6 @@
       font-size: 0.7rem;
       letter-spacing: 1px;
       color: #fff;
-      margin-top: 0.5rem;
       z-index: 11;
     }
   }

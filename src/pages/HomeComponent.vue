@@ -43,17 +43,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
   computed: {
     ...mapGetters({
-      popups: "global/getPopups",
+      popups: 'global/getPopups',
     }),
   },
   async mounted() {
-    this.$store.commit("title/updateTitle", "Home");
-    this.$store.dispatch("global/getPopups");
+    this.$store.commit('title/updateTitle', 'Home');
+    this.$store.dispatch('global/getPopups');
   },
 };
 </script>

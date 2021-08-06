@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    title: "",
+    title: '',
   },
   getters: {
     getTitle(state) {

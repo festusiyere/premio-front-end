@@ -1,4 +1,4 @@
-import { PopupService } from "@/services";
+import { PopupService } from '@/services';
 
 export default {
   namespaced: true,
@@ -28,7 +28,7 @@ export default {
   actions: {
     async getPopups({ commit }) {
       const result = await new PopupService(this._vm).getAllPopups();
-      commit("updateAllPopUs", result.data);
+      commit('updateAllPopUs', result.data);
     },
   },
 };

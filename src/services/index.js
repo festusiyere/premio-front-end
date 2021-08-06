@@ -1,1 +1,1 @@
-export { default as PopupService } from "./popup-service";
+export { default as PopupService } from './popup-service';

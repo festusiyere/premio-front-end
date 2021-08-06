@@ -5,12 +5,12 @@ export default class PopupService {
 
   // Get all Popups
   getAllPopups() {
-    return this.$axios.get("popup");
+    return this.$axios.get('popup');
   }
 
   // Update a popup Resource
   createPopup(data) {
-    return this.$axios.post("popup", data);
+    return this.$axios.post('popup', data);
   }
 
   // Get a popup Resource

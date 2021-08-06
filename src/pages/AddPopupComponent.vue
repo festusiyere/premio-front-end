@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import TemplateEditor from "@/components/TemplateEditor.vue";
-import { PopupService } from "@/services";
+import TemplateEditor from '@/components/TemplateEditor.vue';
+import { PopupService } from '@/services';
 
 export default {
   components: {
@@ -68,34 +68,34 @@ export default {
   data() {
     return {
       popupData: {
-        name: "Custom Popup",
+        name: 'Custom Popup',
         stars: {
           top: 24,
           left: 124,
         },
         mainText: {
           content:
-            "All text and element in this popup should be editable and draggable",
+            'All text and element in this popup should be editable and draggable',
           top: 60,
           left: 32,
         },
         email: {
-          content: "Email",
-          top: 150,
+          content: 'Email',
+          top: 166,
           left: 43,
         },
         button: {
-          content: "SIGNUP NOW",
-          top: 210,
+          content: 'SIGNUP NOW',
+          top: 226,
           left: 43,
         },
         supportingText: {
-          content: "No credit card required. No surprises",
-          top: 280,
+          content: 'No credit card required. No surprises',
+          top: 288,
           left: 88,
         },
         popup: {
-          "background-color": "#ff7c54",
+          'background-color': '#ff7c54',
         },
       },
     };
@@ -106,21 +106,21 @@ export default {
     },
 
     async savePopup() {
-      this.$store.commit("global/updateLoadingStatus", true);
+      this.$store.commit('global/updateLoadingStatus', true);
       // Save popup to Server
 
       await new PopupService(this).createPopup(this.popupData);
       // Refresh popups in store
 
-      await this.$store.dispatch("global/getPopups");
-      this.$store.commit("global/updateLoadingStatus", false);
+      await this.$store.dispatch('global/getPopups');
+      this.$store.commit('global/updateLoadingStatus', false);
 
       // Redirect to home page
-      this.$router.push("/home");
+      this.$router.push('/home');
     },
   },
   async mounted() {
-    this.$store.commit("title/updateTitle", "Add Popup");
+    this.$store.commit('title/updateTitle', 'Add Popup');
   },
 };
 </script>

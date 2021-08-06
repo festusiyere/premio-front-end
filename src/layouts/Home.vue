@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import NavHeader from "@/components/NavHeader.vue";
-import NavMenu from "@/components/NavMenu.vue";
-import Loading from "@/components/Loading.vue";
+import NavHeader from '@/components/NavHeader.vue';
+import NavMenu from '@/components/NavMenu.vue';
+import Loading from '@/components/Loading.vue';
 export default {
   components: {
     NavMenu,
@@ -28,7 +28,7 @@ export default {
   },
   mounted() {
     // Get all popup
-    this.$store.dispatch("global/getPopups");
+    this.$store.dispatch('global/getPopups');
   },
 };
 </script>

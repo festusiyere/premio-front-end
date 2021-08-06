@@ -58,9 +58,9 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import TemplateEditor from "@/components/TemplateEditor.vue";
-import { PopupService } from "@/services";
+import { mapGetters } from 'vuex';
+import TemplateEditor from '@/components/TemplateEditor.vue';
+import { PopupService } from '@/services';
 
 export default {
   components: {
@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      popups: "global/getPopups",
+      popups: 'global/getPopups',
     }),
     popup() {
       if (!this.popups || !this.popups.length) return null;
@@ -84,10 +84,10 @@ export default {
           left: data.stars.left,
         },
         mainText: {
-          id: data["main_text"].id,
-          content: data["main_text"].content,
-          top: data["main_text"].top,
-          left: data["main_text"].left,
+          id: data['main_text'].id,
+          content: data['main_text'].content,
+          top: data['main_text'].top,
+          left: data['main_text'].left,
         },
         email: {
           id: data.email.id,
@@ -102,13 +102,13 @@ export default {
           left: data.button.left,
         },
         supportingText: {
-          id: data["supporting_text"].id,
-          content: data["supporting_text"].content,
-          top: data["supporting_text"].top,
-          left: data["supporting_text"].left,
+          id: data['supporting_text'].id,
+          content: data['supporting_text'].content,
+          top: data['supporting_text'].top,
+          left: data['supporting_text'].left,
         },
         popup: {
-          "background-color": data.background_color,
+          'background-color': data.background_color,
         },
       };
       return formattedData;
@@ -126,17 +126,17 @@ export default {
 
     // Update Popup in server
     async updatePopup() {
-      this.$store.commit("global/updateLoadingStatus", true);
+      this.$store.commit('global/updateLoadingStatus', true);
       await new PopupService(this).updatePopup(this.popupData, this.id);
-      await this.$store.dispatch("global/getPopups");
-      this.$store.commit("global/updateLoadingStatus", false);
-      this.$router.push("/home");
+      await this.$store.dispatch('global/getPopups');
+      this.$store.commit('global/updateLoadingStatus', false);
+      this.$router.push('/home');
     },
   },
   async mounted() {
-    if (!this.popups) this.$router.push("/home");
+    if (!this.popups) this.$router.push('/home');
     this.id = this.$route.params.id;
-    this.$store.commit("title/updateTitle", "Update " + this.popup.name ?? "");
+    this.$store.commit('title/updateTitle', 'Update ' + this.popup.name ?? '');
     this.popupData = this.popup;
   },
 };

@@ -1,8 +1,8 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-import title from "./title";
-import global from "./global";
+import title from './title';
+import global from './global';
 
 Vue.use(Vuex);
 
