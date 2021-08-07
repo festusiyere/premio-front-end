@@ -139,6 +139,7 @@ export default {
 	data() {
 		return {
 			currentElement: null,
+			isEditing: true,
 			positions: {
 				clientX: 0,
 				clientY: 0,
@@ -153,6 +154,9 @@ export default {
 		},
 
 		dragMouseDown(event, data) {
+			if (this.isEditing) {
+				return false;
+			}
 			event.preventDefault();
 			this.currentElement = data;
 			// get the mouse cursor position at startup:

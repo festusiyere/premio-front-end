@@ -92,7 +92,7 @@ export default {
         supportingText: {
           content: 'No credit card required. No surprises',
           top: 288,
-          left: 88,
+          left: 45,
         },
         popup: {
           'background-color': '#ff7c54',
