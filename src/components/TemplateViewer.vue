@@ -87,7 +87,7 @@
           <input type="text" :placeholder="popupData.email.content" />
         </div>
         <div
-          class="button"
+          class="button-div"
           :style="{
             top: popupData.button.top + 'px',
             left: popupData.button.left + 'px',
